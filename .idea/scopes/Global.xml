@@ -1,0 +1,3 @@
+<component name="DependencyValidationManager">
+  <scope name="Global" pattern="file[rscan-js-public.buildSrc*]:*//*||file[rscan-js-public.rscan-base.main]:*/||file[rscan-js-public.rscan-app.main]:*/" />
+</component>

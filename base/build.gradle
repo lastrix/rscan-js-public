@@ -1,0 +1,65 @@
+/*
+ * Copyright (C) 2019-2020.  RScan-js-public project
+ *
+ * This file is part of RScan-js-public project.
+ *
+ * RScan-js-public is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ *  (at your option) any later version.
+ *
+ * RScan-js-public is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with RScan-js-public.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
+plugins {
+    id 'module.rscan'
+}
+
+RScanModule {
+    antlr4Patches = file("${projectDir}/grammar_patches.json")
+    jarImplTitle = 'RScan base library'
+
+    moduleName = 'org.lastrix.rscan'
+}
+
+dependencies {
+    // https://mvnrepository.com/artifact/org.jetbrains/annotations
+    compile group: 'org.jetbrains', name: 'annotations', version: version_jetbrains_annotations
+
+    // https://mvnrepository.com/artifact/org.scala-lang/scala-library
+    compile group: 'org.scala-lang', name: 'scala-library', version: version_scala_library
+
+    // https://mvnrepository.com/artifact/io.github.classgraph/classgraph
+    compile group: 'io.github.classgraph', name: 'classgraph', version: version_classgraph
+
+    // https://mvnrepository.com/artifact/org.apache.commons/commons-lang3
+    compile group: 'org.apache.commons', name: 'commons-lang3', version: version_commons_lang3
+    // https://mvnrepository.com/artifact/commons-io/commons-io
+    compile group: 'commons-io', name: 'commons-io', version: version_commons_io
+
+    // https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind
+    compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: version_jackson
+    // https://mvnrepository.com/artifact/com.fasterxml.jackson.module/jackson-datatype-jdk8
+    compile group: 'com.fasterxml.jackson.datatype', name: 'jackson-datatype-jdk8', version: version_jackson
+    // https://mvnrepository.com/artifact/com.fasterxml.jackson.module/jackson-datatype-jsr310
+    compile group: 'com.fasterxml.jackson.datatype', name: 'jackson-datatype-jsr310', version: version_jackson
+    // https://mvnrepository.com/artifact/com.fasterxml.jackson.module/jackson-module-parameter-names
+    compile group: 'com.fasterxml.jackson.module', name: 'jackson-module-parameter-names', version: version_jackson
+    // https://mvnrepository.com/artifact/com.fasterxml.jackson.module/jackson-module-scala
+    compile group: 'com.fasterxml.jackson.module', name: "jackson-module-scala_${version_scala}", version: version_jackson
+
+    // https://mvnrepository.com/artifact/com.googlecode.juniversalchardet/juniversalchardet
+    compile group: 'com.googlecode.juniversalchardet', name: 'juniversalchardet', version: '1.0.3'
+
+    // https://mvnrepository.com/artifact/org.slf4j/slf4j-api
+    compile group: 'org.slf4j', name: 'slf4j-api', version: version_slf4j
+
+    // https://mvnrepository.com/artifact/org.antlr/antlr4
+    compile group: 'org.antlr', name: 'antlr4', version: version_antlr4
+}

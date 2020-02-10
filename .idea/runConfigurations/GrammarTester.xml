@@ -1,0 +1,17 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="GrammarTester" type="Application" factoryName="Application">
+    <option name="MAIN_CLASS_NAME" value="org.lastrix.rscan.app.GrammarTester" />
+    <module name="rscan-js-public.rscan-app.main" />
+    <option name="PROGRAM_PARAMETERS" value="JavaScript $PROJECT_DIR$/../rscan/test_data/hello_world_project_full" />
+    <option name="VM_PARAMETERS" value="-Xmx4G -XX:+UseG1GC -XX:MaxHeapFreeRatio=30 -XX:MinHeapFreeRatio=10 -Dfile.encoding=UTF-8 -Drscan.parser.parallel=true" />
+    <extension name="coverage">
+      <pattern>
+        <option name="PATTERN" value="org.lastrix.rscan.app.grammar.*" />
+        <option name="ENABLED" value="true" />
+      </pattern>
+    </extension>
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>

@@ -1,0 +1,72 @@
+/*
+ * Copyright (C) 2019-2020.  RScan-js-public project
+ *
+ * This file is part of RScan-js-public project.
+ *
+ * RScan-js-public is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ *  (at your option) any later version.
+ *
+ * RScan-js-public is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with RScan-js-public.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
+plugins {
+    id 'java-library'
+    id 'groovy'
+    id 'idea'
+    id 'java-gradle-plugin'
+}
+
+apply from: '../gradle/versions.gradle'
+
+idea {
+    module {
+        downloadJavadoc = true
+        downloadSources = false
+        outputDir = file("${buildDir}/idea")
+        testOutputDir = file("${buildDir}/idea-test")
+        generatedSourceDirs += file("${buildDir}/generated-src")
+    }
+}
+
+repositories {
+    jcenter()
+    mavenCentral()
+}
+
+dependencies {
+    compileOnly gradleApi()
+    compileOnly localGroovy()
+
+
+    // https://mvnrepository.com/artifact/org.jetbrains/annotations
+    compile group: 'org.jetbrains', name: 'annotations', version: version_jetbrains_annotations
+
+    // https://mvnrepository.com/artifact/org.antlr/antlr4
+    compile group: 'org.antlr', name: 'antlr4', version: version_antlr4
+
+    // https://mvnrepository.com/artifact/commons-io/commons-io
+    compile group: 'commons-io', name: 'commons-io', version: version_commons_io
+
+    // https://mvnrepository.com/artifact/org.apache.commons/commons-lang3
+    compile group: 'org.apache.commons', name: 'commons-lang3', version: version_commons_lang3
+
+    // https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind
+    compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: version_jackson
+}
+
+gradlePlugin {
+    plugins {
+        RScanModulePlugin {
+            id = 'module.rscan'
+            implementationClass = 'module.rscan.RScanModulePlugin'
+        }
+    }
+}
